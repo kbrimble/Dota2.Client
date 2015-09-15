@@ -1,0 +1,8 @@
+language: csharp
+solution: KBrimble.Dota2.sln
+install:
+  - nuget restore KBrimble.Dota2.sln
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+script:
+  - xbuild /p:Configuration=Release KBrimble.Dota2.sln
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./KBrimble.Dota2.Client.UnitTests/bin/Release/KBrimble.Dota2.Client.UnitTests.dll
