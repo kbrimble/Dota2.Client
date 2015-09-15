@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3E75DD11-4DED-4CEF-980A-A6D8E688F288}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KBrimble.Dota2.Client</RootNamespace>
+    <AssemblyName>KBrimble.Dota2.Client</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.0.4.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.2\lib\net452\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\ClassMappings.cs" />
+    <Compile Include="ContractResolvers\SnakeCaseContractResolver.cs" />
+    <Compile Include="Converters\IntToBoolConverter.cs" />
+    <Compile Include="Converters\LongToSecondsConverter.cs" />
+    <Compile Include="Converters\TrueFalseToPickOrBanConverter.cs" />
+    <Compile Include="Converters\UnixTimeToDateTimeConverter.cs" />
+    <Compile Include="Converters\ArrayOfHeroIdsToListOfHeroesConverter.cs" />
+    <Compile Include="Domain\LeagueInformation\LeagueResponse.cs" />
+    <Compile Include="Domain\LeagueInformation\LiveLeagueGame.cs" />
+    <Compile Include="Domain\LeagueInformation\ScheduledGame.cs" />
+    <Compile Include="Domain\MatchInformation\MatchDetail.cs" />
+    <Compile Include="Domain\MatchInformation\MatchHistory.cs" />
+    <Compile Include="ILeagueClient.cs" />
+    <Compile Include="IMatchClient.cs" />
+    <Compile Include="Responses\LeaguePrizePoolResponse.cs" />
+    <Compile Include="Responses\ResponseWrappers\LeagueListingResponseWrapper.cs" />
+    <Compile Include="Responses\InnerResponses\PicksAndBansResponse.cs" />
+    <Compile Include="Domain\LeagueInformation\LeaguePrizePool.cs" />
+    <Compile Include="Responses\LeagueResponse.cs" />
+    <Compile Include="Domain\LeagueInformation\LeagueTier.cs" />
+    <Compile Include="Responses\LiveLeagueGameResponse.cs" />
+    <Compile Include="Domain\TeamInformation\LiveTeam.cs" />
+    <Compile Include="Responses\ScheduledGameResponse.cs" />
+    <Compile Include="Domain\PlayerInformation\LivePlayer.cs" />
+    <Compile Include="Domain\LeagueInformation\LiveTeamDetails.cs" />
+    <Compile Include="Domain\LeagueInformation\Scoreboard.cs" />
+    <Compile Include="Domain\LeagueInformation\SeriesType.cs" />
+    <Compile Include="Domain\LeagueInformation\TeamPlayer.cs" />
+    <Compile Include="Domain\PlayerInformation\LivePlayerSlot.cs" />
+    <Compile Include="Domain\PlayerInformation\MatchDetailPlayer.cs" />
+    <Compile Include="Domain\TeamInformation\ScheduledTeam.cs" />
+    <Compile Include="Responses\ResponseWrappers\ScheduledLeagueGamesResponseWrapper.cs" />
+    <Compile Include="Domain\TeamInformation\Team.cs" />
+    <Compile Include="Domain\Ability.cs" />
+    <Compile Include="Domain\PlayerInformation\AbilityUpgrade.cs" />
+    <Compile Include="Domain\PlayerInformation\AdditionalUnit.cs" />
+    <Compile Include="Domain\MatchInformation\BarrackStatus.cs" />
+    <Compile Include="Domain\MatchInformation\GameMode.cs" />
+    <Compile Include="Domain\Hero.cs" />
+    <Compile Include="Domain\Item.cs" />
+    <Compile Include="Domain\MatchInformation\LeaverStatus.cs" />
+    <Compile Include="Domain\MatchInformation\LobbyType.cs" />
+    <Compile Include="Domain\PlayerInformation\UltimateStatus.cs" />
+    <Compile Include="Responses\MatchDetailResponse.cs" />
+    <Compile Include="Domain\MatchInformation\PickOrBan.cs" />
+    <Compile Include="Domain\MatchInformation\PicksAndBans.cs" />
+    <Compile Include="Domain\PlayerInformation\Player.cs" />
+    <Compile Include="Responses\MatchHistoryResponse.cs" />
+    <Compile Include="Responses\ResponseWrappers\MatchHistoryResponseWrapper.cs" />
+    <Compile Include="Domain\MatchInformation\MatchHistoryStatus.cs" />
+    <Compile Include="Domain\PlayerInformation\MatchDetailPlayerSlot.cs" />
+    <Compile Include="Domain\MatchInformation\Side.cs" />
+    <Compile Include="Domain\MatchInformation\SkillLevel.cs" />
+    <Compile Include="Domain\MatchInformation\TowerStatus.cs" />
+    <Compile Include="Domain\TeamInformation\TeamDetails.cs" />
+    <Compile Include="Domain\TeamInformation\TeamStatus.cs" />
+    <Compile Include="Configuration\Dota2ClientConfiguration.cs" />
+    <Compile Include="Dota2RestClient.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Configuration\IDota2ClientConfiguration.cs" />
+    <Compile Include="Factories\IRestClientFactory.cs" />
+    <Compile Include="LeagueClient.cs" />
+    <Compile Include="Responses\ResponseWrappers\LiveListingResponseWrapper.cs" />
+    <Compile Include="MatchClient.cs" />
+    <Compile Include="Requests\MatchHistoryRequest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Extensions\RestRequestExtensions.cs" />
+    <Compile Include="Factories\RestClientFactory.cs" />
+    <Compile Include="Requests\RequestPaths.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
